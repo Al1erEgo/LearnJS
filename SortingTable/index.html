@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    table {
+       border-collapse: collapse;
+     }
+     th, td {
+       border: 1px solid black;
+       padding: 4px;
+     }
+     th {
+       cursor: pointer;
+     }
+     th:hover {
+       background: yellow;
+     }
+  </style>
+</head>
+
+<body>
+
+  <table id="grid">
+    <thead>
+      <tr>
+        <th data-type="number">Возраст</th>
+        <th data-type="string">Имя</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>5</td>
+        <td>Вася</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Петя</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Женя</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Маша</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Илья</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+
+    let pressToSort = document.querySelector('#grid > thead');
+    let sortingTrs = document.querySelectorAll('tbody > tr');
+    
+    function sort () {
+      if (event.target.dataset.type == "number") sortAge();
+      if (event.target.dataset.type == "string") sortName();
+    }
+
+    function sortAge () {
+      for (let trNum = 1; trNum < sortingTrs.length; trNum++) {
+        sortingTrs = document.querySelectorAll('tbody > tr');
+        for (let i = trNum - 1; i >= 0; i--) {
+          let compareOne = +(sortingTrs[trNum].children[0].textContent);
+          let compareZero = +(sortingTrs[i].children[0].textContent);
+          if (compareOne < compareZero) {
+            sortingTrs[i].before(sortingTrs[trNum]); 
+          } else break;
+        }
+      }
+    }
+
+    function sortName () {
+      for (let trNum = 1; trNum < sortingTrs.length; trNum++) {
+        sortingTrs = document.querySelectorAll('tbody > tr');
+        for (let i = trNum - 1; i >= 0; i--) {
+          let compareOne = sortingTrs[trNum].children[1].textContent;
+          let compareZero = sortingTrs[i].children[1].textContent;
+          if (compareOne < compareZero) {
+            sortingTrs[i].before(sortingTrs[trNum]); 
+          } else break;
+        }
+      } 
+    }
+
+
+    pressToSort.addEventListener ('click', sort);
+
+  </script>
+
+</body>
+</html>

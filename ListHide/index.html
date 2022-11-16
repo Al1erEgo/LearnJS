@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    
+    <p class="menu-head">Сладости (нажми меня)!</p>
+    <ul class="list">
+      <li>Пирожное</li>
+      <li>Пончик</li>
+      <li>Мёд</li>
+    </ul>
+
+    <script>
+
+        let menuHead = document.querySelector(".menu-head");
+        let list = document.querySelector(".list");
+        console.log(menuHead.classList);
+        function expand () {
+            menuHead.classList.toggle("menu-head-expanded");
+            list.classList.toggle("list");
+        }
+        menuHead.addEventListener('click', expand);
+
+    </script>
+
+</body>
+</html>

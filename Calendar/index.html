@@ -20,19 +20,45 @@
     }
   </style>
 </head>
-
 <body>
-
-
   <div id="calendar"></div>
-
   <script>
-    function createCalendar(elem, year, month) {
-      // ...ваш код...
+    let myCalendar = document.querySelector('#calendar');
+    function createCalendar(calendar) {
+        let numOfDays = 30;
+        let today = 1;
+        let days = [
+            'Пн',
+            'Вт',
+            'Ср',
+            'Чт',
+            'Пт',
+            'Сб',
+            'Вс',
+        ];
+        let table = document.createElement('table');
+        for (let day of days) {
+            let th = document.createElement('th');
+            th.innerHTML = day;
+            table.append (th);
+        };
+        for (let weekNumber = 0; weekNumber < 5; weekNumber++) {
+            let week = document.createElement('tr');
+            for (let day = 1; day <= 7; day++) {
+                let td = document.createElement('td');
+                if (today > 30) {
+                td.innerHTML = '';
+                } else {
+                    td.innerHTML = today;
+                }
+                today++;
+                week.append (td);
+            }
+            table.append (week);
+        };
+        calendar.append(table);
     }
-
-    createCalendar(calendar, 2012, 9);
+    createCalendar(myCalendar);
   </script>
-
 </body>
 </html>

@@ -1,0 +1,67 @@
+.arrow {
+    padding: 0;
+    background: #ddd;
+    border-radius: 15px;
+    border: 1px solid gray;
+    font-size: 24px;
+    line-height: 24px;
+    color: #444;
+    display: block;
+    height: 35px;
+  }
+  
+  .arrow:focus {
+    outline: none;
+  }
+  
+  .arrow:hover {
+    background: #ccc;
+    cursor: pointer;
+  }
+  
+  ul {
+    height: 130px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0;
+    display: flex;
+  }
+  
+  ul img {
+    width: 130px;
+    height: 130px;
+    display: block; /* убираем пустое место вокруг картинок */
+  }
+  
+  ul li {
+    display: inline-block; /* убираем пустое место между элементами списка */
+  }
+
+  .main {
+    width: 470px;
+    height: 170px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: lightgray;
+    border-radius: 20px;
+    border-color: black;
+    border: solid 1px;
+  }
+
+  .container {
+    width: 390px;
+    height: 130px;
+    overflow: hidden;
+    display: flex;
+    scroll-behavior: smooth;
+    position: relative;
+  }
+  .scroller {
+    display: flex;
+    position: absolute;
+    transition: 2s;
+  }

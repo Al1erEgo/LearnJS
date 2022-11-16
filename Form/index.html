@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h2>Кликните на кнопку ниже</h2>
+    <button data-initiate>Кликните, чтобы увидеть форму</button>
+
+
+  <div id="prompt-form-container" class="hide">
+    <form id="prompt-form">
+      <div id="prompt-message">Введите что-нибудь...
+        <br>Пожалуйста..</div>
+      <input name="text" type="text">
+      <input type="submit" value="Ok">
+      <input type="button" name="cancel" value="Отмена">
+    </form>
+  </div>
+
+
+</body>
+
+<script>
+    let form = document.querySelector('#prompt-form')
+    let formDiv = document.querySelector('#prompt-form-container');
+    let initiateButton = document.querySelector('[data-initiate]');
+    let promptMessage = document.querySelector('#prompt-message');
+
+    function closePrompt (callback) {
+            if ((event.key === 'Escape' || event.target == form.cancel) && !formDiv.classList.contains('hide')) {
+                    callback(null);
+                    formDiv.classList.toggle('hide')
+                } 
+    }
+
+    function showPrompt(html, callback) {
+        promptMessage.innerHTML = html;
+        formDiv.classList.toggle('hide');
+        form.text.focus();
+        form.cancel.onclick = () => closePrompt(callback);
+        document.onkeydown = () => closePrompt(callback);     
+        form.onsubmit = function () {
+            if (!form.text.value) {
+                event.preventDefault();
+                form.text.focus();
+            } else {
+            callback(form.text.value);
+            };
+        }
+    }
+
+    initiateButton.addEventListener('click', () => showPrompt("Введите что-нибудь<br>...умное :)", alert));
+
+    
+</script>
+
+</html>

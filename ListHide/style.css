@@ -1,0 +1,11 @@
+.menu-head::before {
+    content: "▶ ";
+    color: green;
+}
+.menu-head-expanded::before {
+    content: "▼ ";
+    color: green;
+}
+.list {
+    display: none;
+}

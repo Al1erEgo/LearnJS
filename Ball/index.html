@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    #field {
+      width: 200px;
+      height: 150px;
+      border: 10px solid black;
+      background-color: #00FF00;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+    <body style="height:2000px">
+
+    Нажмите на поле для перемещения мяча.
+    <br> Мяч не должен выходить за границы поля.
+
+    Нажмите на поле для перемещения мяча.
+    <br> Мяч не должен выходить за границы поля.
+
+    Нажмите на поле для перемещения мяча.
+    <br> Мяч не должен выходить за границы поля.
+
+    Нажмите на поле для перемещения мяча.
+    <br> Мяч не должен выходить за границы поля.
+
+
+    <div id="field">
+        <img src="https://ru.js.cx/clipart/ball.svg" id="ball"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    </div>
+
+    <script>
+        field.style.position = "relative";
+        ball.style.position = "absolute";
+        ball.style.width = "40px";
+        ball.style.height = "40px";
+        ball.style.transitionProperty = "top, left";
+        ball.style.transitionDuration = "500ms, 500ms";
+        ball.style.left = 0;
+        ball.style.top = 0;
+
+        function move () {
+            let fieldCoord = field.getBoundingClientRect();
+            let ballRadius = ball.offsetWidth / 2
+            let fieldOffsetX = fieldCoord.left + field.clientLeft + ballRadius;
+            let fieldOffsetY = fieldCoord.top + field.clientTop + ballRadius;
+
+            if (event.clientX - fieldOffsetX < 0) {
+                ball.style.left = 0 + 'px';
+            } else if (event.clientX - fieldCoord.left - field.clientLeft > field.clientWidth - ballRadius) {
+                ball.style.left = field.clientWidth - ballRadius*2 + 'px';
+            } else {
+                ball.style.left = event.clientX - fieldOffsetX + 'px';
+            }
+
+            if (event.clientY - fieldOffsetY < 0) {
+                ball.style.top = 0 + 'px';
+            } else if (event.clientY - fieldCoord.top - field.clientTop > field.clientHeight - ballRadius) {
+                ball.style.top = field.clientHeight - ballRadius*2 + 'px';
+            } else {
+                ball.style.top = event.clientY - fieldOffsetY + 'px';
+            }
+
+        };
+
+        field.addEventListener('click', move);
+        
+    </script>
+
+    </body>
+</html>

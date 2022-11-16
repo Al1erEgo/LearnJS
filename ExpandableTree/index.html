@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <ul class="tree" id="tree">
+    <li>Животные
+      <ul>
+        <li>Млекопитающие
+          <ul>
+            <li>Коровы</li>
+            <li>Ослы</li>
+            <li>Собаки</li>
+            <li>Тигры</li>
+          </ul>
+        </li>
+        <li>Другие
+          <ul>
+            <li>Змеи</li>
+            <li>Птицы</li>
+            <li>Ящерицы</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>Рыбы
+      <ul>
+        <li>Аквариумные
+          <ul>
+            <li>Гуппи</li>
+            <li>Скалярии</li>
+          </ul>
+        </li>
+        <li>Морские
+          <ul>
+            <li>Морская форель</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <script>
+
+    let liCollection = document.querySelectorAll('li');
+    let mainTree = document.querySelector('#tree');
+
+    function show (event) {
+        let target = event.target;
+        if (target.classList.contains('li-parent')) {
+        target.nextElementSibling.hidden = !target.nextElementSibling.hidden;
+        }
+        
+    }
+
+    for (currentLi of liCollection) {
+        if (currentLi.firstElementChild) {
+            currentLi.firstElementChild.hidden = true;
+            let text = currentLi.firstChild.textContent;
+            let htmlInsertion = `<span class="li-parent"> ${text} </span>`;
+            currentLi.firstChild.remove();
+            currentLi.insertAdjacentHTML("afterBegin", htmlInsertion);
+        }
+    }
+
+    mainTree.addEventListener('click', show);
+
+  </script>
+
+</body>
+</html>
