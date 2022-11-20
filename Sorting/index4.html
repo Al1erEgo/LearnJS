@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function copySorted (array) {
+            let copyArray = [...array];
+            return copyArray.sort();
+        }
+
+        let arr = ["HTML", "JavaScript", "CSS"];
+
+        let sorted = copySorted(arr);
+
+        console.log( sorted ); // CSS, HTML, JavaScript
+        console.log( arr ); // HTML, JavaScript, CSS (без изменений)
+    </script>
+</body>
+</html>

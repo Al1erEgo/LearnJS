@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let vasya = { name: "Вася", age: 25 };
+        let petya = { name: "Петя", age: 30 };
+        let masha = { name: "Маша", age: 29 };
+
+        let arr = [ vasya, petya, masha ];
+
+        function getAverageAge (array) {
+            return array.reduce( (sum, item) => sum + item.age  , 0 ) / array.length;
+        }
+
+        console.log( getAverageAge(arr) ); // (25 + 30 + 29) / 3 = 28
+    </script>
+</body>
+</html>

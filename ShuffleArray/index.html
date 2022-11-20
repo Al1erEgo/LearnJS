@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [1, 2, 3];
+
+        function shuffle (array) { 
+            
+            array.sort( () => Math.random()*10-5 );
+
+        }
+        shuffle(arr)
+        console.log(arr);
+        // arr = [3, 2, 1]
+        shuffle(arr)
+        console.log(arr);
+        // arr = [2, 1, 3]
+        shuffle(arr)
+        console.log(arr);
+        // arr = [3, 1, 2]
+        // ...
+        shuffle(arr)
+        console.log(arr);
+        shuffle(arr)
+        console.log(arr);
+        shuffle(arr)
+        console.log(arr);
+
+
+    </script>
+</body>
+</html>

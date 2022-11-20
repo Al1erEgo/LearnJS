@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [5, 3, 8, 1];
+
+        function filterRange (array, a, b) {
+            return array.filter( (number) => {if (number >= a && number <= b) return number} );
+        };
+
+        let filtered = filterRange(arr, 1, 4);
+
+        console.log(filtered);
+        
+    </script>
+</body>
+</html>
