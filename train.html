@@ -9,20 +9,13 @@
 <body>
     <script>
 
+        let user = { name: "John", years: 30 };
 
-    function accum(s) {
-      return s.toUpperCase().split('').reduce( (resultArr, item, index, arr) => {
-                                                                                  let symbol = item.toLowerCase();
-                                                                                  for (i = 0; i < index; i++) {
-                                                                                    item = item + symbol;
-                                                                                  }
-                                                                                  resultArr.push(item);
-                                                                                  return resultArr
-                                                                                }, [])
-                                                                                .join('-')
-    }
+        let { name, years: age, isAdmin = false} = user;
 
-      console.log(accum("ZpglnRxqenU"))
+        console.log( name ); // John
+        console.log( age ); // 30
+        console.log( isAdmin ); // false
 
     </script>
 </body>
